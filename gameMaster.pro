@@ -15,10 +15,14 @@ TEMPLATE = app
 SOURCES += main.cpp\
         gmwindow.cpp \
     gameserver.cpp \
-    servercomm.cpp
+    servercomm.cpp \
+    Deck.cpp \
+    Card.cpp
 
 HEADERS  += gmwindow.h \
     gameserver.h \
-    servercomm.h
+    servercomm.h \
+    Deck.h \
+    Card.h
 
 FORMS    += gmwindow.ui
