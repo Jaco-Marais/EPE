@@ -8,15 +8,15 @@ using namespace std;
 		setIsPlayed(false);
 	}
 
-	const Card operator=( const Card &right)
-	{
-		suit = right.getSuit();
-		value = right.getValue();
-		owner = right.getOwner();
-		isPlayed = right.getIsPlayed();
+//    const Card operator=(  Card &right)
+//	{
+//		suit = right.getSuit();
+//		value = right.getValue();
+//		owner = right.getOwner();
+//		isPlayed = right.getIsPlayed();
 
-		return *this;
-	}
+//		return *this;
+//	}
 
 	void Card::setSuit(string suitVal )
 	{

@@ -3,6 +3,7 @@
 
 #include <string>
 #include <iostream>
+#include <QDebug>
 using namespace std;
 
 class Card 
@@ -17,7 +18,7 @@ class Card
 
 	public:
 		Card(); //constructor
-		const Card operator=( const Card &right); //used to copy one card object's data to another
+//		const Card operator=( const Card &right); //used to copy one card object's data to another
 
 		// moet dalk ook die << operator overload om Card se data maklik uit te print
 

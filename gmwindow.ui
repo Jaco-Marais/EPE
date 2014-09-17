@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>gmWindow</string>
+   <string>Game Server</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QListWidget" name="listPlayers">
@@ -55,7 +55,7 @@
      <rect>
       <x>10</x>
       <y>110</y>
-      <width>131</width>
+      <width>181</width>
       <height>17</height>
      </rect>
     </property>
@@ -68,7 +68,7 @@
      <rect>
       <x>10</x>
       <y>140</y>
-      <width>101</width>
+      <width>171</width>
       <height>17</height>
      </rect>
     </property>
@@ -91,7 +91,7 @@
      <rect>
       <x>580</x>
       <y>110</y>
-      <width>67</width>
+      <width>101</width>
       <height>17</height>
      </rect>
     </property>
@@ -102,7 +102,7 @@
    <widget class="QLineEdit" name="serverName">
     <property name="geometry">
      <rect>
-      <x>180</x>
+      <x>250</x>
       <y>10</y>
       <width>113</width>
       <height>20</height>
@@ -112,23 +112,10 @@
      <string>Group B</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="remoteServerIP">
-    <property name="geometry">
-     <rect>
-      <x>180</x>
-      <y>110</y>
-      <width>113</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
    <widget class="QLineEdit" name="remoteServerPort">
     <property name="geometry">
      <rect>
-      <x>180</x>
+      <x>240</x>
       <y>140</y>
       <width>113</width>
       <height>20</height>
@@ -140,7 +127,7 @@
      <rect>
       <x>10</x>
       <y>40</y>
-      <width>101</width>
+      <width>131</width>
       <height>17</height>
      </rect>
     </property>
@@ -151,9 +138,9 @@
    <widget class="QLabel" name="serverIP">
     <property name="geometry">
      <rect>
-      <x>180</x>
+      <x>250</x>
       <y>40</y>
-      <width>101</width>
+      <width>131</width>
       <height>17</height>
      </rect>
     </property>
@@ -192,7 +179,7 @@
      <rect>
       <x>20</x>
       <y>220</y>
-      <width>101</width>
+      <width>141</width>
       <height>17</height>
      </rect>
     </property>
@@ -213,19 +200,50 @@
      <string>Yes/No</string>
     </property>
    </widget>
-   <widget class="QLabel" name="serverPort">
+   <widget class="QLineEdit" name="serverPort">
     <property name="geometry">
      <rect>
-      <x>180</x>
+      <x>240</x>
       <y>70</y>
-      <width>101</width>
-      <height>17</height>
+      <width>113</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="text">
      <string>1234</string>
     </property>
    </widget>
+   <widget class="QLineEdit" name="remoteServerIP">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>110</y>
+      <width>113</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <zorder>listPlayers</zorder>
+   <zorder>label</zorder>
+   <zorder>label_2</zorder>
+   <zorder>label_4</zorder>
+   <zorder>label_6</zorder>
+   <zorder>listStatus</zorder>
+   <zorder>label_8</zorder>
+   <zorder>serverName</zorder>
+   <zorder>remoteServerIP</zorder>
+   <zorder>remoteServerPort</zorder>
+   <zorder>label_7</zorder>
+   <zorder>serverIP</zorder>
+   <zorder>label_10</zorder>
+   <zorder>regButton</zorder>
+   <zorder>label_11</zorder>
+   <zorder>regStatus</zorder>
+   <zorder>serverPort</zorder>
+   <zorder>remoteServerIP</zorder>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">

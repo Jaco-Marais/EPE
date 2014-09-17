@@ -4,6 +4,7 @@
 #include "Card.h"
 #include <cstdlib>
 #include <ctime>
+#include <QDebug>
 
 class Deck
 {

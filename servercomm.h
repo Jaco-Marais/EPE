@@ -8,8 +8,8 @@ class servercomm : public QObject
 {
     Q_OBJECT
 public:
-    explicit servercomm(int ID, QObject *parent = 0);
-
+    explicit servercomm(QObject *parent = 0);
+    void setID(int);
 signals:
     void error(QTcpSocket::SocketError socketerror);
         void sendmessage(QString);

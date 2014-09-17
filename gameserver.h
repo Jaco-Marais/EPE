@@ -4,11 +4,11 @@
 #include <QTcpServer>
 #include "connectionthread.h"
 #include "servercomm.h"
-
-
+#include <QNetworkInterface>
+#include <QDebug>
 struct playerStruct{
  QString screenName;
- servercomm *connection;
+ servercomm connection;
 
 };
 
@@ -21,7 +21,9 @@ public:
 
 private:
     int numberOfPlayers;
-    playerStruct *Players[4];
+    int Port;
+    playerStruct Players[4];
+    QThread threads[4];
  signals:
   void sendtoupdatePlayers(bool,QString);
   void sendtoupdateStatus(QString);
@@ -29,7 +31,7 @@ private:
   void sendGeneral(QString, QString, QString);
 public slots:
  void receiveMessage(QString);
- void receiveRegistration(QString, QString, QString);
+ void receiveRegistration(QString, QString, QString, QString);
 protected:
     void incomingConnection(qintptr socketDescriptor);
 };

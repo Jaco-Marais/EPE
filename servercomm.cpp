@@ -1,9 +1,14 @@
 #include "servercomm.h"
 #include <QDebug>
-servercomm::servercomm(int ID, QObject *parent) :
+servercomm::servercomm(QObject *parent) :
     QObject(parent)
 {
-        this->socketDescriptor = ID;
+
+}
+
+void servercomm::setID(int ID)
+{
+     this->socketDescriptor = ID;
 }
 
 void servercomm::manageconnection()
