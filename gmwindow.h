@@ -29,7 +29,7 @@ private slots:
     void on_regButton_clicked();
 
 signals:
-        void Registration(QString,QString, QString, QString);
+        void Registration(QString,QString,QString, QString, QString);
 
 };
 

@@ -44,7 +44,7 @@ void servercomm::ReadyRead()
 void servercomm::disconnected()
 {
     qDebug() << socketDescriptor << " Disconnected";
-
+    socket->close();
     socket->deleteLater();
-    exit(0);
+   // exit(0);
 }

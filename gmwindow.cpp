@@ -10,10 +10,10 @@ gmWindow::gmWindow(QWidget *parent) :
 
 
 
-connect(&gm, SIGNAL(sendtoupdatePlayers(bool,QString)),this, SLOT(updateConnectedPlayers(bool, QString)));
+connect(&gm, SIGNAL(sendtoupdatePlayers(bool,QString)),this, SLOT(updateConnectedPlayers(bool, QString)),Qt::QueuedConnection);
 connect(&gm, SIGNAL(sendtoupdateStatus(QString)),this, SLOT(updateStatus(QString)));
-connect(this, SIGNAL(Registration(QString, QString, QString, QString)),&gm, SLOT(receiveRegistration(QString,QString,QString, QString)));
-connect(&gm, SIGNAL(sendGeneral(QString, QString, QString)),this, SLOT(updateGeneral(QString,QString, QString)));
+connect(this, SIGNAL(Registration(QString,QString, QString, QString, QString)),&gm, SLOT(receiveRegistration(QString,QString,QString,QString, QString)),Qt::QueuedConnection);
+connect(&gm, SIGNAL(sendGeneral(QString, QString, QString)),this, SLOT(updateGeneral(QString,QString, QString)),Qt::QueuedConnection);
 }
 
    void gmWindow::updateConnectedPlayers(bool connected, QString playerName)
@@ -51,6 +51,6 @@ gmWindow::~gmWindow()
 
 void gmWindow::on_regButton_clicked()
 {
-    emit Registration( ui->serverPort->text(),ui->serverName->displayText(), ui->remoteServerIP->text(), ui->remoteServerPort->displayText() );
+    emit Registration( ui->serverPort->text(),ui->serverName->displayText(), ui->serverPassword->displayText(),ui->remoteServerIP->text(), ui->remoteServerPort->displayText() );
 
 }

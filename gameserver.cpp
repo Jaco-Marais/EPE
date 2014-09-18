@@ -7,7 +7,7 @@ gameServer::gameServer(QObject *parent) :
  numberOfPlayers = 0;
 }
 
-void gameServer::startServer()
+bool gameServer::startServer()
 {
 
     if(this->listen(QHostAddress::Any,Port))
@@ -28,10 +28,12 @@ void gameServer::startServer()
 
         emit sendGeneral("No",serverIP, QString::number(Port));
         qDebug() << "Listening... on " << Port;
+        return true;
     }
     else
     {
         qDebug() << errorString()<< "Could not start server on port " << Port;
+          return false;
     }
 
 
@@ -39,25 +41,32 @@ void gameServer::startServer()
 
 void gameServer::incomingConnection(qintptr socketDescriptor)
 {
+    try
+    {
 if( numberOfPlayers <4)
 {
 qDebug() << socketDescriptor << " Connecting...";
 
 Players[numberOfPlayers].connection.setID(socketDescriptor);
-// = new QThread();
 Players[numberOfPlayers].connection.moveToThread(&threads[numberOfPlayers]);
 threads[numberOfPlayers].start();
 
-//connect(&threads[numberOfPlayers], SIGNAL(finished()), &Players[numberOfPlayers].connection, SLOT(deleteLater()));
-connect(this, SIGNAL(operate()), &Players[numberOfPlayers].connection, SLOT(manageconnection()));
+connect(&threads[numberOfPlayers], SIGNAL(finished()), &Players[numberOfPlayers].connection, SLOT(deleteLater()));
+connect(this, SIGNAL(operate()), &Players[numberOfPlayers].connection, SLOT(manageconnection()),Qt::QueuedConnection);
 emit operate();
+bool a;
+//a= QMetaObject::invokeMethod(&Players[numberOfPlayers].connection, "manageconnection", Qt::AutoConnection);
 
-
-connect(&Players[numberOfPlayers].connection, SIGNAL(sendmessage(QString)),this, SLOT(receiveMessage(QString)));
+connect(&Players[numberOfPlayers].connection, SIGNAL(sendmessage(QString)),this, SLOT(receiveMessage(QString)),Qt::QueuedConnection);
 emit sendtoupdatePlayers(true,"Player connected");
 numberOfPlayers = numberOfPlayers + 1;
 } // numberOfPlayers <4
+    }
+    catch (...)
+    {
+     qDebug()<<errorString();
 
+    }
 }
 
 void gameServer::receiveMessage(QString message)
@@ -66,30 +75,64 @@ void gameServer::receiveMessage(QString message)
 emit sendtoupdateStatus(message);
 }
 
- void gameServer::receiveRegistration(QString serverPort, QString name, QString IP, QString remoteP)
+ void gameServer::receiveRegistration(QString serverPort, QString name, QString serverPass,QString remoteIP, QString remoteP)
  {
   bool successlocal;
   bool successremote;
+  bool successfulstart = false;
   int remoteport;
   int myport;
+  bool allgood = true;
 
   myport = serverPort.toInt(&successlocal,10);
   if(successlocal == false)
   {
+      allgood = false;
    qDebug() << "invalid  local port received from GUI";
   }
-  Port = myport;
-  startServer();
 
   remoteport = remoteP.toInt(&successremote,10);
    if(successremote == false)
    {
+    allgood = false;
     qDebug() << "invalid  remote port received from GUI";
    }
 
+   if(serverPass.length() == 0)
+   {
+   allgood = false;
+   qDebug()<< "Blank server password specified";
+   }
+
+   if(name.length() == 0)
+   {
+   allgood = false;
+   qDebug()<< "Blank server name specified";
+   }
+
+
+  if(allgood)
+  {
+  successfulstart =  startServer();
+  }
+
+  if(successfulstart == false)
+  {
+   allgood = false;
+  }
+
+   if(allgood)
+    {
+   password = serverPass;
+   Port = myport;
+     qDebug() <<"contacting remote server";
     //make connection to central game server, at IP and port
+    }
+     else
+   {
+    qDebug()<< "invalid parameters";
+   }
 
  }
-
 
 

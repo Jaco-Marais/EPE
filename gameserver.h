@@ -17,11 +17,12 @@ class gameServer : public QTcpServer
         Q_OBJECT
 public:
     explicit gameServer(QObject *parent = 0);
-    void startServer();
+    bool startServer();
 
 private:
     int numberOfPlayers;
     int Port;
+    QString password;
     playerStruct Players[4];
     QThread threads[4];
  signals:
@@ -31,7 +32,7 @@ private:
   void sendGeneral(QString, QString, QString);
 public slots:
  void receiveMessage(QString);
- void receiveRegistration(QString, QString, QString, QString);
+ void receiveRegistration(QString,QString, QString, QString, QString);
 protected:
     void incomingConnection(qintptr socketDescriptor);
 };

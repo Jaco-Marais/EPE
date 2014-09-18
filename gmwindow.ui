@@ -54,7 +54,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>110</y>
+      <y>160</y>
       <width>181</width>
       <height>17</height>
      </rect>
@@ -67,7 +67,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>140</y>
+      <y>190</y>
       <width>171</width>
       <height>17</height>
      </rect>
@@ -116,17 +116,20 @@
     <property name="geometry">
      <rect>
       <x>240</x>
-      <y>140</y>
+      <y>190</y>
       <width>113</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="text">
+     <string>1542</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_7">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>40</y>
+      <y>90</y>
       <width>131</width>
       <height>17</height>
      </rect>
@@ -139,7 +142,7 @@
     <property name="geometry">
      <rect>
       <x>250</x>
-      <y>40</y>
+      <y>90</y>
       <width>131</width>
       <height>17</height>
      </rect>
@@ -152,7 +155,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>70</y>
+      <y>120</y>
       <width>101</width>
       <height>17</height>
      </rect>
@@ -165,7 +168,7 @@
     <property name="geometry">
      <rect>
       <x>100</x>
-      <y>180</y>
+      <y>230</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -178,7 +181,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>220</y>
+      <y>270</y>
       <width>141</width>
       <height>17</height>
      </rect>
@@ -191,7 +194,7 @@
     <property name="geometry">
      <rect>
       <x>180</x>
-      <y>220</y>
+      <y>270</y>
       <width>101</width>
       <height>17</height>
      </rect>
@@ -204,7 +207,7 @@
     <property name="geometry">
      <rect>
       <x>240</x>
-      <y>70</y>
+      <y>120</y>
       <width>113</width>
       <height>20</height>
      </rect>
@@ -217,7 +220,7 @@
     <property name="geometry">
      <rect>
       <x>240</x>
-      <y>110</y>
+      <y>160</y>
       <width>113</width>
       <height>20</height>
      </rect>
@@ -226,24 +229,32 @@
      <string/>
     </property>
    </widget>
-   <zorder>listPlayers</zorder>
-   <zorder>label</zorder>
-   <zorder>label_2</zorder>
-   <zorder>label_4</zorder>
-   <zorder>label_6</zorder>
-   <zorder>listStatus</zorder>
-   <zorder>label_8</zorder>
-   <zorder>serverName</zorder>
-   <zorder>remoteServerIP</zorder>
-   <zorder>remoteServerPort</zorder>
-   <zorder>label_7</zorder>
-   <zorder>serverIP</zorder>
-   <zorder>label_10</zorder>
-   <zorder>regButton</zorder>
-   <zorder>label_11</zorder>
-   <zorder>regStatus</zorder>
-   <zorder>serverPort</zorder>
-   <zorder>remoteServerIP</zorder>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>40</y>
+      <width>141</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Server password: </string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="serverPassword">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>40</y>
+      <width>113</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>pass</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
