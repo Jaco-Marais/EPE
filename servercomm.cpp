@@ -5,7 +5,7 @@ servercomm::servercomm(QObject *parent) :
 {
 
 }
-
+//hierdie is 'n comment
 void servercomm::setID(int ID)
 {
      this->socketDescriptor = ID;

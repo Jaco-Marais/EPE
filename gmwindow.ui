@@ -164,8 +164,8 @@
    <widget class="QPushButton" name="regButton">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>180</y>
+      <x>240</x>
+      <y>170</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -226,24 +226,6 @@
      <string/>
     </property>
    </widget>
-   <zorder>listPlayers</zorder>
-   <zorder>label</zorder>
-   <zorder>label_2</zorder>
-   <zorder>label_4</zorder>
-   <zorder>label_6</zorder>
-   <zorder>listStatus</zorder>
-   <zorder>label_8</zorder>
-   <zorder>serverName</zorder>
-   <zorder>remoteServerIP</zorder>
-   <zorder>remoteServerPort</zorder>
-   <zorder>label_7</zorder>
-   <zorder>serverIP</zorder>
-   <zorder>label_10</zorder>
-   <zorder>regButton</zorder>
-   <zorder>label_11</zorder>
-   <zorder>regStatus</zorder>
-   <zorder>serverPort</zorder>
-   <zorder>remoteServerIP</zorder>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
