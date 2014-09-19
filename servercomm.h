@@ -4,6 +4,8 @@
 #include <QObject>
 #include <QTcpSocket>
 #include <QDebug>
+#include <QJsonDocument>
+#include <QJsonObject>
 class servercomm : public QObject
 {
     Q_OBJECT

@@ -37,6 +37,16 @@ void servercomm::ReadyRead()
     QByteArray Data = socket->readAll();
 
      qDebug() << socketDescriptor << " Data in: " << Data;
+
+//        QString Datastring(Data);
+//     QJsonDocument jsonResponse = QJsonDocument::fromJson(Datastring.toUtf8());
+
+//             QJsonObject jsonObj = jsonResponse.object();
+//             QString type = jsonObj["Type"].toString();
+//             int ack = jsonObj["Note"].toInt();
+//             int errorCode = jsonObj["Error Code"].toInt();
+
+//             qDebug() << type << ack<< errorCode;
     emit sendmessage(Data);
      socket->write(Data);
 }
